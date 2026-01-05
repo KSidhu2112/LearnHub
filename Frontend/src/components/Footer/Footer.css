@@ -1,0 +1,150 @@
+/* ========== FOOTER BASE ========== */
+.footer {
+  background-color: #0f172a; /* Dark navy blue */
+  color: #f1f5f9; /* Light text */
+  padding: 60px 20px 25px;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Footer container layout */
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ========== BRAND SECTION ========== */
+.footer-brand {
+  max-width: 300px;
+}
+
+.footer-logo {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: #2563eb;
+  margin-bottom: 10px;
+}
+
+.footer-logo span {
+  color: #facc15;
+}
+
+.footer-text {
+  color: #cbd5e1;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* ========== LINKS SECTION ========== */
+.footer-links h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #f8fafc;
+  margin-bottom: 15px;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links ul li {
+  margin-bottom: 10px;
+}
+
+.footer-links ul li a {
+  color: #cbd5e1;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+  color: #2563eb;
+  padding-left: 3px;
+}
+
+/* ========== SOCIAL SECTION ========== */
+.footer-social h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #f8fafc;
+  margin-bottom: 15px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.social-icons a {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.social-icons img {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  transition: 0.3s ease;
+  background-color: #f8fafc;
+  padding: 5px;
+}
+
+.social-icons img:hover {
+  background-color: #2563eb;
+  transform: scale(1.1);
+}
+
+/* ========== BOTTOM LINE ========== */
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid #1e293b;
+  margin-top: 40px;
+  padding-top: 20px;
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+.footer-bottom strong {
+  color: #2563eb;
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+@media (max-width: 900px) {
+  .footer {
+    text-align: center;
+  }
+
+  .footer-container {
+    gap: 30px;
+  }
+
+  .footer-text {
+    margin: 0 auto;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-logo {
+    font-size: 1.6rem;
+  }
+
+  .footer-links h4,
+  .footer-social h4 {
+    font-size: 1rem;
+  }
+
+  .social-icons img {
+    width: 30px;
+    height: 30px;
+  }
+}

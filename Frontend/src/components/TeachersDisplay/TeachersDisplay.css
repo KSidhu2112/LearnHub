@@ -1,0 +1,126 @@
+/* ===============================
+   Root container
+================================ */
+.display-all {
+  padding: 24px;
+  max-width: 1200px;
+  margin: auto;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ===============================
+   Section heading
+================================ */
+.display-all h2 {
+  margin: 32px 0 16px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #222;
+  border-left: 5px solid #4f46e5;
+  padding-left: 12px;
+}
+
+/* ===============================
+   Nx1 grid
+================================ */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+/* ===============================
+   Card layout
+================================ */
+.grid > div {
+  display: flex;
+  align-items: flex-start;
+  gap: 28px;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.grid > div:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* ===============================
+   LEFT: Image + Name
+================================ */
+.grid img {
+  width: 170px;
+  height: 170px;
+  object-fit: contain;
+  background: #f3f4f6;
+  border-radius: 12px;
+  padding: 10px;
+}
+
+/* Teacher name BELOW photo */
+.grid > div h3 {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  color: #111;
+}
+
+/* Wrap image + name vertically */
+.grid > div img + h3 {
+  display: block;
+}
+
+/* ===============================
+   RIGHT: Info section
+================================ */
+.grid > div p {
+  font-size: 15px;
+  color: #555;
+  margin: 6px 0;
+  line-height: 1.5;
+}
+
+/* Email */
+.grid .email {
+  font-size: 14px;
+  color: #2563eb;
+  word-break: break-word;
+}
+
+.grid .email:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* ===============================
+   Align left section properly
+================================ */
+.grid > div {
+  position: relative;
+}
+
+/* Make LEFT block vertical */
+.grid > div > img,
+.grid > div > h3 {
+  flex-shrink: 0;
+}
+
+/* ===============================
+   Mobile responsive
+================================ */
+@media (max-width: 768px) {
+  .grid > div {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .grid img {
+    width: 150px;
+    height: 150px;
+    margin: auto;
+  }
+}
