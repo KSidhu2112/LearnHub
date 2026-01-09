@@ -1,55 +1,94 @@
 import TeacherProfile from "../models/TeacherProfile.js";
+import { generateTeacherProfile } from "../utils/generateTeacherProfile.js";
 
-/* CREATE TEACHER */
-export const createTeacher = async (req, res) => {
+export const createTeacherProfile = async (req, res) => {
   try {
-    const teacher = new TeacherProfile({
-      ...req.body,
-      image: req.file ? `/students/${req.file.filename}` : ""
-    });
+    console.log("BODY:", req.body);
+    console.log("FILE:", req.file);
 
-    await teacher.save();
+    const imagePath = req.file
+  ? `teachers/${req.file.filename}` // ✅ MATCHES FOLDER
+  : "";
+
+
+
+      // const description = await generateTeacherProfile(req.body);
+    const teacher = await TeacherProfile.create({
+      name: req.body.name,
+      email: req.body.email,
+      qualification: req.body.qualification,
+      subjects: req.body["subjects[]"], // ARRAY
+      experience: req.body.experience,
+      bio: req.body.bio,
+      price: req.body.price,
+      mode: req.body.mode,
+      image: imagePath,
+    });
 
     res.status(201).json({
       success: true,
-      message: "Teacher profile created",
-      teacher
+      message: "Teacher profile created successfully",
+      teacher,
+      // description,
     });
   } catch (error) {
+    console.error(error);
     res.status(500).json({
       success: false,
-      message: error.message
+      message: "Failed to create teacher profile",
     });
   }
 };
 
-/* GET ALL TEACHERS */
+
+
+// ✅ GET ALL TEACHERS
+// GET ALL TEACHERS
 export const getAllTeachers = async (req, res) => {
   try {
     const teachers = await TeacherProfile.find().sort({ createdAt: -1 });
 
-    res.json({
+    res.status(200).json({
       success: true,
-      teachers
+      teachers,
     });
   } catch (error) {
     res.status(500).json({
       success: false,
-      message: error.message
+      message: "Failed to fetch teachers",
     });
   }
 };
 
-/* GET SINGLE TEACHER */
+
+
 export const getTeacherById = async (req, res) => {
   try {
-    const teacher = await TeacherProfile.findById(req.params.id);
+    const { id } = req.params;
 
-    if (!teacher)
-      return res.status(404).json({ success: false, message: "Teacher not found" });
+    const teacher = await TeacherProfile.findById(id);
 
-    res.json({ success: true, teacher });
+
+    const description = await generateTeacherProfile(teacher);
+
+    if (!teacher) {
+      return res.status(404).json({
+        success: false,
+        message: "Teacher are not found",
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      teacher,
+      description
+    });
   } catch (error) {
-    res.status(500).json({ success: false, message: error.message });
+    console.error(error);
+    res.status(500).json({
+      success: false,
+      message: "Failed to fetch teacher details",
+    });
   }
 };
+

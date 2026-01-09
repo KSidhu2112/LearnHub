@@ -76,10 +76,11 @@ const TeacherProfile = () => {
           mode: "",
           image: null,
         });
+        // console.log(res.data.description)
         setPreview(null);
       }
     } catch (error) {
-      console.error(error);
+      console.error("Error in Creating Profile");
       alert("❌ Failed to create profile");
     }
   };

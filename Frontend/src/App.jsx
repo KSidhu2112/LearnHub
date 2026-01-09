@@ -6,10 +6,12 @@ import Footer from './components/Footer/Footer'
 import TeacherProfile from './components/TeacherProfile/TeacherProfile'
 import StudentMenu from './pages/StudentMenu/StudentMenu'
 import TeachersMenu from './pages/TeachersMenu/TeachersMenu'
-import StudentDisplay from './components/StudentDisplay/StudentDisplay'
 import StudentProfile from './components/StudentProfile/StudentProfile'
 import TeachersDisplay from './components/TeachersDisplay/TeachersDisplay'
 import StudentsDashboard from './components/StudentsDashboard/StudentsDashboard'
+import TeacherDetailsById from './components/TeacherDetailsById/TeacherDetailsById'
+import AirDrawStudent from './components/AirDraw/AirDrawStudent'
+import AirDrawTeacher from './components/AirDraw/AirDrawTeacher'
 
 const App = () => {
   const [login,setLogin]=useState(false)
@@ -30,7 +32,14 @@ const App = () => {
           {/* <Route path='studentsmenu/dashboard' element={<StudentDisplay/>}/> */}
           <Route path='teachersmenu/profile' element={<TeacherProfile/>}/>
           <Route path='teachersmenu/dashboard' element={<TeachersDisplay/>}/>
+
+
+          <Route path="/teacher/:id" element={<TeacherDetailsById />} />
           
+          <Route path="/teacher/airdraw/:roomId" element={<AirDrawTeacher />} />
+<Route path="/student/airdraw/:roomId" element={<AirDrawStudent />} />
+
+
         </Routes>
       
       <Footer/>

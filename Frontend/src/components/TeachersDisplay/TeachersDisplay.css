@@ -1,126 +1,140 @@
 /* ===============================
-   Root container
+   MAIN CONTAINER
 ================================ */
-.display-all {
-  padding: 24px;
+.tutors-container {
   max-width: 1200px;
-  margin: auto;
+  margin: 40px auto;
+  padding: 20px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* ===============================
-   Section heading
-================================ */
-.display-all h2 {
-  margin: 32px 0 16px;
-  font-size: 24px;
+.tutors-container h2 {
+  text-align: center;
+  font-size: 32px;
   font-weight: 600;
-  color: #222;
-  border-left: 5px solid #4f46e5;
-  padding-left: 12px;
+  color: #1f2937;
+  margin-bottom: 30px;
 }
 
 /* ===============================
-   Nx1 grid
+   LOADING & EMPTY STATES
 ================================ */
-.grid {
+.loading-text,
+.empty-text {
+  text-align: center;
+  font-size: 16px;
+  color: #6b7280;
+}
+
+/* ===============================
+   TEACHERS GRID
+================================ */
+.tutors-list {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
 }
 
 /* ===============================
-   Card layout
+   TEACHER CARD
 ================================ */
-.grid > div {
-  display: flex;
-  align-items: flex-start;
-  gap: 28px;
+.teacher-card {
   background: #ffffff;
-  border-radius: 14px;
-  padding: 20px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  padding: 22px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.grid > div:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.15);
+.teacher-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
 }
 
 /* ===============================
-   LEFT: Image + Name
+   TEACHER IMAGE
 ================================ */
-.grid img {
-  width: 170px;
-  height: 170px;
-  object-fit: contain;
-  background: #f3f4f6;
-  border-radius: 12px;
-  padding: 10px;
-}
-
-/* Teacher name BELOW photo */
-.grid > div h3 {
-  margin-top: 10px;
-  font-size: 18px;
-  font-weight: 600;
-  text-align: center;
-  color: #111;
-}
-
-/* Wrap image + name vertically */
-.grid > div img + h3 {
+.teacher-image {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
   display: block;
+  margin: 0 auto 15px auto;
+  border: 3px solid #e5e7eb;
 }
 
 /* ===============================
-   RIGHT: Info section
+   NAME
 ================================ */
-.grid > div p {
-  font-size: 15px;
-  color: #555;
+.teacher-card h3 {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 10px;
+}
+
+/* ===============================
+   DETAILS TEXT
+================================ */
+.teacher-card p {
+  font-size: 14.5px;
+  color: #374151;
   margin: 6px 0;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
-/* Email */
-.grid .email {
+.teacher-card strong {
+  color: #111827;
+  font-weight: 600;
+}
+
+/* ===============================
+   BIO (HIGHLIGHTED)
+================================ */
+.teacher-bio {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #e5e7eb;
   font-size: 14px;
-  color: #2563eb;
-  word-break: break-word;
+  color: #4b5563;
 }
 
-.grid .email:hover {
-  text-decoration: underline;
+/* ===============================
+   PRICE HIGHLIGHT
+================================ */
+.teacher-card p strong + span,
+.teacher-card p:last-of-type {
+  color: #16a34a;
+  font-weight: 600;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 600px) {
+  .teacher-card {
+    padding: 18px;
+  }
+
+  .teacher-image {
+    width: 100px;
+    height: 100px;
+  }
+}
+.details-btn {
+  margin-top: 14px;
+  padding: 10px 16px;
+  background-color: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
   cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s ease;
 }
 
-/* ===============================
-   Align left section properly
-================================ */
-.grid > div {
-  position: relative;
-}
-
-/* Make LEFT block vertical */
-.grid > div > img,
-.grid > div > h3 {
-  flex-shrink: 0;
-}
-
-/* ===============================
-   Mobile responsive
-================================ */
-@media (max-width: 768px) {
-  .grid > div {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .grid img {
-    width: 150px;
-    height: 150px;
-    margin: auto;
-  }
+.details-btn:hover {
+  background-color: #1d4ed8;
 }

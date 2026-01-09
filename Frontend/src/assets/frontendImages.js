@@ -31,7 +31,7 @@ import profile_icon from './profile_icon.png'
 import dot from './dot.png'
 import notification from './notification.png'
 import upload_image from './upload_area.png'
-
+import logout_icon from './logout_icon.png'
 
 
 
@@ -40,7 +40,8 @@ export const assets={
   profile_icon,
   dot,
   notification,
-  upload_image
+  upload_image,
+  logout_icon
 }
 
 

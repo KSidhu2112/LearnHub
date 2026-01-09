@@ -1,0 +1,212 @@
+/* ===============================
+   MAIN CONTAINER
+================================ */
+.teacher-details-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 35px;
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.08);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+}
+
+/* ===============================
+   TEACHER IMAGE
+================================ */
+.teacher-image {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #2563eb;
+  margin-bottom: 18px;
+}
+
+/* ===============================
+   TEACHER INFO
+================================ */
+.teacher-details-container h2 {
+  font-size: 30px;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 10px;
+}
+
+.teacher-details-container p {
+  font-size: 15.5px;
+  color: #4b5563;
+  margin: 6px 0;
+}
+
+.teacher-details-container p strong {
+  color: #111827;
+}
+
+/* ===============================
+   BIO SECTION
+================================ */
+.bio {
+  margin-top: 25px;
+  padding: 20px;
+  background: #f9fafb;
+  border-radius: 14px;
+  text-align: left;
+}
+
+.bio h4 {
+  font-size: 18px;
+  color: #2563eb;
+  margin-bottom: 8px;
+}
+
+.bio p {
+  font-size: 15px;
+  color: #374151;
+  line-height: 1.6;
+}
+
+/* ===============================
+   BOOK BUTTON
+================================ */
+.book-btn {
+  margin-top: 30px;
+  padding: 14px 28px;
+  font-size: 16px;
+  font-weight: 500;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.book-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.35);
+}
+
+/* ===============================
+   BOOKING MODAL
+================================ */
+.booking-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* ===============================
+   BOOKING BOX
+================================ */
+.booking-box {
+  background: #ffffff;
+  width: 360px;
+  padding: 28px;
+  border-radius: 16px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 0.3s ease;
+}
+
+.booking-box h3 {
+  text-align: center;
+  font-size: 22px;
+  color: #1f2937;
+  margin-bottom: 18px;
+}
+
+/* ===============================
+   INPUTS & TEXTAREA
+================================ */
+.booking-box input,
+.booking-box textarea {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  font-size: 14.5px;
+  outline: none;
+  transition: border 0.2s ease;
+}
+
+.booking-box input:focus,
+.booking-box textarea:focus {
+  border-color: #2563eb;
+}
+
+.booking-box textarea {
+  resize: none;
+  min-height: 90px;
+}
+
+/* ===============================
+   ACTION BUTTONS
+================================ */
+.booking-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.booking-actions button {
+  flex: 1;
+  padding: 12px 0;
+  border-radius: 10px;
+  border: none;
+  font-size: 14.5px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+/* Confirm */
+.booking-actions button:first-child {
+  background: #16a34a;
+  color: white;
+}
+
+.booking-actions button:first-child:hover {
+  background: #15803d;
+}
+
+/* Cancel */
+.booking-actions button:last-child {
+  background: #ef4444;
+  color: white;
+}
+
+.booking-actions button:last-child:hover {
+  background: #dc2626;
+}
+
+/* ===============================
+   ANIMATION
+================================ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 500px) {
+  .teacher-details-container {
+    padding: 25px;
+  }
+
+  .booking-box {
+    width: 90%;
+  }
+}

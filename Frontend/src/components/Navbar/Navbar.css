@@ -176,3 +176,74 @@
     right: 24px;
   }
 }
+
+
+
+
+
+/* ===============================
+   PROFILE DROPDOWN MENU
+================================ */
+
+.nav-profile-menu {
+  position: absolute;
+  top: 60px;               /* adjust based on navbar height */
+  right: 20px;
+  width: 180px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  padding: 8px 0;
+  list-style: none;
+  z-index: 1000;
+
+  /* animation */
+  animation: dropdownFade 0.25s ease-in-out;
+}
+
+/* Dropdown animation */
+@keyframes dropdownFade {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Menu items */
+.nav-profile-menu li {
+  padding: 12px 18px;
+  cursor: pointer;
+  font-size: 15px;
+  color: #1f2937;
+  display: flex;
+  align-items: center;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+/* Hover effect */
+.nav-profile-menu li:hover {
+  background: #f3f4f6;
+  color: #2563eb;
+}
+
+/* Text inside item */
+.nav-profile-menu li span {
+  font-weight: 500;
+}
+
+/* Divider effect (optional) */
+.nav-profile-menu li:not(:last-child) {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .nav-profile-menu {
+    right: 10px;
+    width: 160px;
+  }
+}

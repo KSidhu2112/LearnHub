@@ -1,58 +1,92 @@
 import React, { createContext, useState, useEffect } from "react";
-import {Students} from "../assets/frontendImages";
-import {Teachers} from "../assets/frontendImages";
-
+import { Students, Teachers } from "../assets/frontendImages";
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  
   const [user, setUser] = useState(null);
+  const [token, setToken] = useState("");
   const [profile, setProfile] = useState(null);
-  const [menu,setMenu]=useState("");
-  const [token, setToken] = useState(
-    localStorage.getItem("token") || ""
-  );
-  const url="http://localhost:5000"
+  const [menu, setMenu] = useState("");
+
+  const url = "http://localhost:5000";
+
+  // 🔐 Load auth data safely on app start
   useEffect(() => {
-    
     const storedUser = localStorage.getItem("user");
-    if (storedUser) {
-      setToken(storedUser)
-      setUser(JSON.parse(storedUser));
+    const storedToken = localStorage.getItem("token");
+
+    // ✅ SAFE USER PARSE
+    if (storedUser && storedUser !== "undefined") {
+      try {
+        const parsedUser = JSON.parse(storedUser);
+        setUser(parsedUser);
+      } catch (error) {
+        console.error("Invalid user data. Clearing storage.");
+        localStorage.removeItem("user");
+      }
+    }
+
+    // ✅ SAFE TOKEN LOAD
+    if (storedToken && storedToken !== "undefined") {
+      setToken(storedToken);
     }
   }, []);
 
-  const loginUser = (userData) => {
+  // ✅ LOGIN
+  const loginUser = (userData, jwtToken) => {
+    if (!userData || !jwtToken) {
+      console.error("Login failed: missing user or token");
+      return;
+    }
+
     localStorage.setItem("user", JSON.stringify(userData));
+    localStorage.setItem("token", jwtToken);
+
     setUser(userData);
+    setToken(jwtToken);
   };
 
-  const registerUser = (userData) => {
+  // ✅ REGISTER
+  const registerUser = (userData, jwtToken) => {
+    if (!userData || !jwtToken) {
+      console.error("Register failed: missing user or token");
+      return;
+    }
+
     localStorage.setItem("user", JSON.stringify(userData));
+    localStorage.setItem("token", jwtToken);
+
     setUser(userData);
+    setToken(jwtToken);
   };
 
+  // ✅ LOGOUT
   const logoutUser = () => {
     localStorage.removeItem("user");
+    localStorage.removeItem("token");
+
     setUser(null);
+    setToken("");
+    setProfile(null);
   };
 
   return (
-  
     <AuthContext.Provider
       value={{
         url,
-        menu,setMenu,
-        Students,Teachers,
+        menu,
+        setMenu,
+        Students,
+        Teachers,
+        user,
+        token,
         profile,
         setProfile,
-        user,
         loginUser,
         registerUser,
         logoutUser,
         isAuthenticated: !!user,
-        token,setToken
       }}
     >
       {children}

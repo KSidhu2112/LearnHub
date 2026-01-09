@@ -59,17 +59,16 @@ const Navbar = ({ setLogin }) => {
             <img src={assets.profile_icon} alt="profile" />
 
             {showMenu && (
-              <ul className="nav-profile-menu">
-                <li onClick={() => navigate("/orders")}>
-                  <img src={assets.bag_icon} alt="" />
-                  <span>Orders</span>
-                </li>
-                <li onClick={logout}>
-                  <img src={assets.logout_icon} alt="" />
-                  <span>Logout</span>
-                </li>
-              </ul>
-            )}
+  <ul className="nav-profile-menu">
+    <li onClick={() => navigate("/profile")}>
+      <span>Profile</span>
+    </li>
+    <li onClick={logout}>
+      <span>Logout</span>
+    </li>
+  </ul>
+)}
+
           </div>
         )}
       </div>
