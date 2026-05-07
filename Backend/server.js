@@ -18,7 +18,7 @@ const app = express();
 
 /* -------------------- Middleware -------------------- */
 app.use(cors({
-  origin: ["https://learnhubcmr.netlify.app", "http://localhost:5173", "http://localhost:5174"],
+  origin: ["https://learnhubcmr.netlify.app", "https://learnhubadmin.netlify.app", "http://localhost:5173", "http://localhost:5174"],
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
