@@ -165,7 +165,7 @@ const TutorApprovals = () => {
                         <div className="relative shrink-0">
                             <div className="h-28 w-28 rounded-[2rem] bg-slate-50 dark:bg-slate-950 overflow-hidden border-2 border-white dark:border-slate-800 shadow-xl group-hover/card:scale-105 transition-transform duration-500 ring-8 ring-indigo-500/5">
                                 {tutor.profileImage ? (
-                                    <img src={`http://localhost:5001/images/${tutor.profileImage}`} alt="" className="h-full w-full object-cover" />
+                                    <img src={`https://learnhub-f78f.onrender.com/images/${tutor.profileImage}`} alt="" className="h-full w-full object-cover" />
                                 ) : (
                                     <div className="h-full w-full flex items-center justify-center bg-gradient-to-br from-indigo-50 to-indigo-100 dark:from-slate-800 dark:to-slate-900 text-indigo-400">
                                         <GraduationCap size={48} />
@@ -250,7 +250,7 @@ const TutorApprovals = () => {
                                 <div className="flex gap-8 items-center">
                                     <div className="h-28 w-28 rounded-[2.5rem] bg-slate-50 dark:bg-slate-950 flex items-center justify-center overflow-hidden border-4 border-white dark:border-slate-800 shadow-2xl ring-8 ring-indigo-500/5">
                                         {showDetailModal.profileImage ? (
-                                            <img src={`http://localhost:5001/images/${showDetailModal.profileImage}`} alt="" className="h-full w-full object-cover" />
+                                            <img src={`https://learnhub-f78f.onrender.com/images/${showDetailModal.profileImage}`} alt="" className="h-full w-full object-cover" />
                                         ) : (
                                             <GraduationCap size={56} className="text-indigo-400" />
                                         )}

@@ -10,7 +10,7 @@ const StudentProfile = () => {
 
   const fetchStudents = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/student/all");
+      const res = await fetch("https://learnhub-f78f.onrender.com/api/student/all");
       const data = await res.json();
 
       if (data.success) {
@@ -34,7 +34,7 @@ const StudentProfile = () => {
               <img
                 src={
                   student.image
-                    ? `http://localhost:5000/${student.image}`
+                    ? `https://learnhub-f78f.onrender.com/${student.image}`
                     : "/default-avatar.png"
                 }
                 alt={student.name}
